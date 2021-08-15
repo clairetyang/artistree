@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Survey Focus</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Quicksand&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="{% static 'artistree/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'artistree/vendors/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'artistree/style.css' %}" />
+</head>
+
+<body>
+    <br /><br />
+    <div class="container">
+        <img class="background" src="{% static 'artistree/images/survey_focus_bg.png' %}">
+
+        <!-- progress bar -->
+        <div class="row">
+            <div class="survey-progress col-3"></div>
+            <div class="survey-progress col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div>
+        
+        <h1 style="text-align: center; left: 28%;"> Choose your <br/> focuses </h1>
+
+        <!-- cards -->
+        <!-- needs selection function -->
+        <div class="card-container">
+            <div class="focus-row row">
+                <div class="col-5" onclick = "sendMessage('Technical Skills')" >Technical<br>Skills</div>
+                <div class="col-5" onclick = "sendMessage('Sales & Commissions')">Sales &<br>Commissions</div>
+            </div>
+            <div class="focus-row row">
+                <div class="col-5" onclick = "sendMessage('Social Media')">Social<br>Media</div>
+                <div class="col-5" onclick = "sendMessage('Experiment')">Experiment</div>
+            </div>
+            <div class="focus-row row">
+                <div class="col-5" onclick = "sendMessage('Challenges')">Challenges</div>
+                <div class="col-5" onclick = "sendMessage('Other')">Other</div>
+            </div>
+        </div>
+
+        <!-- navigation buttons -->
+        <a href="{% url 'survey_name' %}" id = "link1">
+            <button class="btn back-btn">Back</button>
+        </a>
+        <a href="{% url 'survey_goal' %}" id = "link2">
+            <button class="btn next-btn">Next</button>
+        </a>
+    </div>
+    <script>
+        // localStorage.removeItem("Technical Skills");
+        // localStorage.removeItem("Sales & Commissions");
+        // localStorage.removeItem("Social Media");
+        // localStorage.removeItem("Experiment");
+        // localStorage.removeItem("Challenges");
+        // localStorage.removeItem("Other");
+        function sendMessage(message){
+    
+			localStorage.setItem(message, true);
+        }
+
+    
+        $(function(){
+            $(".col-5").click(function(){
+                if ($(this).hasClass("focus-selected")) {
+                    $(this).removeClass("focus-selected");
+                } else {
+                    $(this).addClass("focus-selected");
+                }
+            });
+        });
+
+    </script>
+
+    
+
+</body>
+
+
+</html>
