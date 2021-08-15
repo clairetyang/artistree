@@ -2,7 +2,7 @@
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
-import habit_planter.routing
+import artistree.routing
 
 import django
 
@@ -12,7 +12,7 @@ application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            habit_planter.routing.websocket_urlpatterns
+            artistree.routing.websocket_urlpatterns
         )
     ),
 })

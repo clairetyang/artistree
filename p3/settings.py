@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'channels',
-    'habit_planter',
-    # 'habit_planter.apps.HabitPlanterConfig',
+    'artistree',
+    # 'artistree.apps.artistreeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
